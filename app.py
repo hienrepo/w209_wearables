@@ -1,5 +1,6 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 from flask_bootstrap import Bootstrap
+import os
 
 
 application = app = Flask(__name__)
@@ -9,34 +10,46 @@ Bootstrap(app)
 def index():
 	return render_template('index.html')
 
-# @app.route('/prompts')
-# def prompts():
-		# return render_template('prompts.html')
 
-# @app.route('/grader')
-# def grader():
-		# return render_template('grader.html')
+# app.config["XML_UPLOADS"] = "/data"
 
 
+def allowed_type(filename):
+	
+	if not "." in filename:
+		return False
+	
+	ext = filename.rsplit(".", 1)[1]
+	
+	if ext.upper() in ["XML", "PNG", "JPG"]:
+		return True
+	else:
+		return False
 
-# @app.route('/predict',methods=['POST', 'GET'])
-# def predict():
 
-	# if request.method == 'POST':
-		# essay = request.form['essay_input']
-		# prompt = request.form['prompt_input']
-		# print(prompt)
-
-		# if essay[0] in ['a', 'b', 'c']:
-			# my_prediction = "True"
-		# else:
-			# my_prediction = "False"
-
-		# return render_template('results.html', prediction = my_prediction
-											 # , input_essay = essay.upper()
-											 # , input_prompt = prompt)
-	# elif request.method == 'GET':
-		# return render_template('results.html')
+@app.route('/upload', methods=["GET", "POST"])
+def upload():
+	if request.method == "POST":
+		if request.files:
+			xml = request.files["xml"]
+			ext = xml.filename.rsplit(".", 1)[1]
+			
+			
+			if xml.filename == "":
+				print("File must have filename")
+				return redirect(request.url)
+			
+			if not allowed_type(xml.filename):
+				print("File not allowed")
+				return redirect(request.url)
+				
+			xml.save('./data/user_upload' + '.' + ext)
+			
+			print("File saved")
+			
+			return redirect(request.url)
+			
+	return render_template('index.html')
 
 
 if __name__ == '__main__':
