@@ -14,7 +14,7 @@ W209 - Wearables</title>
 {% block styles %}
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="/static/custom.css" rel="stylesheet">
+<!-- <link href="/static/custom.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 {% endblock %}
 
@@ -25,35 +25,34 @@ W209 - Wearables</title>
 
 <!-- Main block -->
 <main role="main">
-<div class="jumbotron">
+<div class="jumbotron" id="intro-section">
 	<div class="container">
-		<h1 class="display-3">Wearables Technology</h1>
-		<p>Visualizing wearables data.</p>
-		<p><a class="btn btn-primary btn-lg" href="#upload-section" role="button">Try now &raquo;</a></p>
+		<h1 style="font-weight: bold">Your health data, visualized.</h1>
+		<h5>It's easier than ever to see your trends for wide range of health metrics. This application will display consolidated data from Apple Health so you can view all your progress in one convenient place.</h5>
+		<p style="opacity:0.7;"><a class="btn btn-outline-dark btn-lg" href="#upload-section" role="button">Try now &raquo;</a></p>
 	</div>
 </div>
 
 
 <!-- Features/Highlights -->
 <div class="jumbotron" id="overview-section">
-	<h1 style="text-align: center;padding-bottom: 80px;">What are wearables?</h1>
-	<div class="container">
+	<h2 style="text-align: center;padding-bottom: 80px;">Overview</h2>
+	<div class="container" style="text-align: center">
 		<div class="row mb-3">
 			<div class="col-md-4 themed-grid-col">
-			<i class="fas fa-tshirt" style="font-size:60px;color:red;"></i>
+			<i class="fas fa-tshirt" style="font-size:60px;color:#ff443a;opacity:0.7;"></i>
 			<h4>History</h4>
 			<p>There is a growing consumer preference for connected devices and increasing population of IoT devices available.There are various segments of products such as watches, wristbands, and clothing</p>
 			</div>
 			<div class="col-md-4 themed-grid-col">
-			<i class="fas fa-tachometer-alt" style="font-size:60px;color:red;"></i>
+			<i class="fas fa-tachometer-alt" style="font-size:60px;color:#ff443a;opacity:0.7;"></i>
 
 			<h4>Volume of Data</h4>
 			<p>High growth in wearables will be attributed to growing consumer awareness pertaining to personal fitness and health, and increasing demand for wireless health monitoring devices. 
 </p>
 			</div>
 			<div class="col-md-4 themed-grid-col">
-			<i class="fas fa-chart-bar" style="font-size:60px;color:red;"></i>
-			<i class="fas fa-watch-fitness" style="font-size:60px;color:red;"></i>
+			<i class="fas fa-chart-bar" style="font-size:60px;color:#ff443a;opacity:0.7;"></i>
 			<h4>Data Types</h4>
 			<p>Wearables technology collect vast amounts of data regarding a user’s health, fitness, and well being. Examples:</p>
 			</div>
@@ -62,42 +61,78 @@ W209 - Wearables</title>
 </div>
 
 <div class="jumbotron" id="visualize-section">
-	<h1 style="text-align: center;padding-bottom: 80px;">Health Data Visualized</h1>
+	<h2 style="text-align: center;padding-bottom: 80px;">Visualizations</h2>
 	<div class="container">
+	
+		<div class="input-group mb-3">
+		  <div class="input-group-prepend">
+			<label class="input-group-text" for="vizselection">Options</label>
+		  </div>
+		  <select class="custom-select" id="vizselection">
+			<option selected>Choose...</option>
+			<option value="viz1">One</option>
+			<option value="viz2">Two</option>
+			<option value="viz3">Three</option>
+			<option value="viz4">Four</option>
+			<option value="viz5">Five</option>
+			<option value="viz6">Six</option>
+		  </select>
+		</div>
+
+		
+		<div id="viz1" class="chart" style="display:none">
+		Visualization 1
+		</div>
+		<div id="viz2" class="chart"  style="display:none">
+		Visualization 2
+		</div>
+		<div id="viz3" class="chart"  style="display:none">
+		Visualization 3
+		</div>
+		<div id="viz4" class="chart"  style="display:none">
+		Visualization 4
+		</div>
+		<div id="viz5" class="chart"  style="display:none">
+		Visualization 5
+		</div>
+		<div id="viz6" class="chart"  style="display:none">
+		Visualization 6
+		</div>		
+
 	</div>
 </div>
 
 <div class="jumbotron" id="upload-section">
-	<h1 style="text-align: center;padding-bottom: 80px;">Upload Your Data</h1>
+	<h2 style="text-align: center;padding-bottom: 80px;">Upload Your Data</h2>
 	<form action="/upload" method="POST" enctype="multipart/form-data">
 		<div class="form-group">
-			<label for="upload-form">Upload your wearables data (.xml)</label>
+			<label for="upload-form">Upload your Apple Health data (.xml)</label>
 			<input type="file" class="form-control-file" id="upload-form" name="xml">
 		</div>
-		<button type="submit" class="btn btn-primary btn-lg btn-block">Graph My Data</button>
+		<button type="submit" class="btn btn-outline-dark btn-lg btn-block" style="font-weight:bold;opacity:0.7;">Graph My Data</button>
 	</form>
 </div>
 
 <!-- About the team -->
 <div class="jumbotron" id="aboutus-section">
-	<h1 style="text-align: center;padding-bottom: 80px;">About Us</h1>
+	<h2 style="text-align: center;padding-bottom: 80px;">About Us</h2>
 	<div class="container">
-		<div class="row">
+		<div class="row" style="text-align: center">
 		      <div class="col-lg-4">
 		        <img src="static/cm.jpg" class="rounded-circle" alt="HelPic" width="140" height="140">
-		        <h3>Clayton</h3>
+		        <h5>Clayton</h5>
 		        <p></p>
 		        <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/clayton-monis-984a26126/" role="button">View details &raquo;</a></p>
 		      </div><!-- /.col-lg-3 -->
 		      <div class="col-lg-4">
 		        <img src="static/sd.jpg" class="rounded-circle" alt="HelPic" width="140" height="140">
-		        <h3>Sudipto</h3>
+		        <h5>Sudipto</h5>
 		        <p></p>
 		        <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/sudipto-shankar-dasgupta-80158428/" role="button">View details &raquo;</a></p>
 		      </div><!-- /.col-lg-3 -->
 		      <div class="col-lg-4">
 		        <img src="static/hn.jpg" class="rounded-circle" alt="HelPic" width="140" height="140">
-		        <h3>Hien</h3>
+		        <h5>Hien</h5>
 		        <p></p>
 		        <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/hien91" role="button">View details &raquo;</a></p>
 		      </div><!-- /.col-lg-3 -->
@@ -113,7 +148,17 @@ W209 - Wearables</title>
 {% block scripts %}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 {{super()}}
+
+<script>
+	$(document).ready(function(){
+		$("#vizselection").on('change', function(){
+			$(".chart").hide();
+			$("#" + $(this).val()).fadeIn(700);
+		}).change();
+	});
+</script>
 {% endblock %}
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
