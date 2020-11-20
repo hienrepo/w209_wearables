@@ -14,8 +14,8 @@ W209 - Wearables</title>
 {% block styles %}
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- <link href="/static/custom.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+<link href="/static/custom.css" rel="stylesheet">
 {% endblock %}
 
 {% endblock %}
@@ -25,13 +25,27 @@ W209 - Wearables</title>
 
 <!-- Main block -->
 <main role="main">
-<div class="jumbotron" id="intro-section">
-	<div class="container">
+
+<section id="home-intro">
+<div class="row justify-content-center">
+    <div class="col-6">
 		<h1 style="font-weight: bold">Your health data, visualized.</h1>
 		<p style="font-size:24px;">It's easier than ever to see your trends for wide range of health metrics. This application will display consolidated data from Apple Health so you can view all your progress in one convenient place.</p>
-		<p style="opacity:0.7;"><a class="btn btn-outline-dark btn-lg" href="#upload-section" role="button">Try now &raquo;</a></p>
-	</div>
-</div>
+		<p style="opacity:0.7;"><a class="btn btn-outline-light btn-lg" href="#upload-section" role="button">Try now &raquo;</a></p>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- <div class="jumbotron" id="intro-section"> -->
+	<!-- <div class="container"> -->
+		<!-- <h1 style="font-weight: bold">Your health data, visualized.</h1> -->
+		<!-- <p style="font-size:24px;">It's easier than ever to see your trends for wide range of health metrics. This application will display consolidated data from Apple Health so you can view all your progress in one convenient place.</p> -->
+		<!-- <p style="opacity:0.7;"><a class="btn btn-outline-dark btn-lg" href="#upload-section" role="button">Try now &raquo;</a></p> -->
+	<!-- </div> -->
+<!-- </div> -->
 
 
 <!-- Features/Highlights -->
@@ -81,22 +95,64 @@ W209 - Wearables</title>
 
 		
 		<div id="viz1" class="chart" style="display:none">
-		Visualization 1
+			<div class="row">
+			  <div class="col-9">
+			  Viz 1 9col
+			  </div>
+			  <div class="col-3">
+			  Viz 1 3col
+			  </div>
+			</div>
 		</div>
 		<div id="viz2" class="chart"  style="display:none">
-		Visualization 2
+			<div class="row">
+			  <div class="col-9">
+			  Viz 2 9col
+			  </div>
+			  <div class="col-3">
+			  Viz 2 3col
+			  </div>
+			</div>
 		</div>
 		<div id="viz3" class="chart"  style="display:none">
-		Visualization 3
+			<div class="row">
+			  <div class="col-9">
+			  Viz 3 9col
+			  </div>
+			  <div class="col-3">
+			  Viz 3 3col
+			  </div>
+			</div>
 		</div>
 		<div id="viz4" class="chart"  style="display:none">
-		Visualization 4
+			<div class="row">
+			  <div class="col-9">
+			  Viz 4 9col
+			  </div>
+			  <div class="col-3">
+			  Viz 4 3col
+			  </div>
+			</div>
 		</div>
 		<div id="viz5" class="chart"  style="display:none">
-		Visualization 5
+			<div class="row">
+			  <div class="col-9">
+			  Viz 5 9col
+			  </div>
+			  <div class="col-3">
+			  Viz 5 3col
+			  </div>
+			</div>
 		</div>
 		<div id="viz6" class="chart"  style="display:none">
-		Visualization 6
+			<div class="row">
+			  <div class="col-9">
+			  Viz 6 9col
+			  </div>
+			  <div class="col-3">
+			  Viz 6 3col
+			  </div>
+			</div>
 		</div>		
 
 	</div>
