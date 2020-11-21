@@ -1,5 +1,4 @@
 {% extends "bootstrap/base.html" %}
-
 {% block html_attribs %} lang="en"{% endblock %}
 
 {% block head %}
@@ -11,12 +10,15 @@
 W209 - Wearables</title>
 {% endblock %}
 
-{% block styles %}
+
+
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-<link href="/static/custom.css" rel="stylesheet">
-{% endblock %}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='custom.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">	  
+
+
 
 {% endblock %}
 
@@ -30,7 +32,7 @@ W209 - Wearables</title>
 <div class="row justify-content-center">
     <div class="col-6">
 		<h1 style="font-weight: bold">Your health data, visualized.</h1>
-		<p style="font-size:24px;">It's easier than ever to see your trends for wide range of health metrics. This application will display consolidated data from Apple Health so you can view all your progress in one convenient place.</p>
+		<p style="font-size:24px;">It's easier than ever to see your trends for wide range of health metrics. This website provides insights from consolidated Apple Health data so you see your progress in one convenient place.</p>
 		<p style="opacity:0.7;"><a class="btn btn-outline-light btn-lg" href="#upload-section" role="button">Try now &raquo;</a></p>
     </div>
   </div>
@@ -46,33 +48,41 @@ W209 - Wearables</title>
 		<!-- <p style="opacity:0.7;"><a class="btn btn-outline-dark btn-lg" href="#upload-section" role="button">Try now &raquo;</a></p> -->
 	<!-- </div> -->
 <!-- </div> -->
-
+<!-- style="text-align: center;padding-bottom: 80px;" -->
 
 <!-- Features/Highlights -->
-<div class="jumbotron" id="overview-section">
-	<h2 style="text-align: center;padding-bottom: 80px;">Overview</h2>
+<div class="home-about" id="overview-section">
+	
 	<div class="container" style="text-align: center">
+	<h2 class="p-4">Overview</h2>
 		<div class="row mb-3">
 			<div class="col-md-4 themed-grid-col">
-			<i class="fas fa-tshirt" style="font-size:60px;color:#ff443a;opacity:0.7;"></i>
+			<i class="fas fa-tshirt" style="font-size:60px;color:#1a337d;"></i>
 			<h4>History</h4>
 			<p>There is a growing consumer preference for connected devices and increasing population of IoT devices available.There are various segments of products such as watches, wristbands, and clothing</p>
 			</div>
 			<div class="col-md-4 themed-grid-col">
-			<i class="fas fa-tachometer-alt" style="font-size:60px;color:#ff443a;opacity:0.7;"></i>
+			<i class="fas fa-tachometer-alt" style="font-size:60px;color:#1a337d;"></i>
 
 			<h4>Volume of Data</h4>
 			<p>High growth in wearables will be attributed to growing consumer awareness pertaining to personal fitness and health, and increasing demand for wireless health monitoring devices. 
 </p>
 			</div>
 			<div class="col-md-4 themed-grid-col">
-			<i class="fas fa-chart-bar" style="font-size:60px;color:#ff443a;opacity:0.7;"></i>
+			<i class="fas fa-chart-bar" style="font-size:60px;color:#1a337d;"></i>
 			<h4>Data Types</h4>
 			<p>Wearables technology collect vast amounts of data regarding a user’s health, fitness, and well being. Examples:</p>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+
+
+<div class="test1">testslksjtlsekjlssdfsfsd</div>
+
+
 
 <div class="jumbotron" id="visualize-section">
 	<h2 style="text-align: center;padding-bottom: 80px;">Visualizations</h2>

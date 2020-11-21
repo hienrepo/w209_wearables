@@ -1,3 +1,24 @@
+/* html, body, div, span, applet, object, iframe, */
+/* h1, h2, h3, h4, h5, h6, p, blockquote, pre, */
+/* a, abbr, acronym, address, big, cite, code, */
+/* del, dfn, em, img, ins, kbd, q, s, samp, */
+/* small, strike, strong, sub, sup, tt, var, */
+/* b, u, i, center, */
+/* dl, dt, dd, ol, ul, li, */
+/* fieldset, form, label, legend, */
+/* table, caption, tbody, tfoot, thead, tr, th, td, */
+/* article, aside, canvas, details, embed,  */
+/* figure, figcaption, footer, header, hgroup,  */
+/* menu, nav, output, ruby, section, summary, */
+/* time, mark, audio, video { */
+    /* margin: 0px; */
+    /* padding: 0; */
+    /* border: 0; */
+    /* font-size: 100%; */
+    /* font: inherit; */
+    /* vertical-align: baseline; */
+/* } */
+
 #home-intro {
   padding: 50vh 0;
   background: #123 url('/static/watch.jpg');
@@ -5,4 +26,19 @@
   background-blend-mode: multiply;
   color: white;
   text-align: center;
+}
+
+.home-about {
+  padding: 4em 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.jumbotron {
+  background: #f4f4f4;
+}
+
+.test1 {
+  background-color: black;
+  color: red;
 }
