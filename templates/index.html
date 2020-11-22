@@ -94,12 +94,12 @@ W209 - Wearables</title>
 		  </div>
 		  <select class="custom-select" id="vizselection">
 			<option selected>Choose...</option>
-			<option value="viz1">One</option>
-			<option value="viz2">Two</option>
-			<option value="viz3">Three</option>
-			<option value="viz4">Four</option>
-			<option value="viz5">Five</option>
-			<option value="viz6">Six</option>
+			<option value="viz1">Heart Rate Vs Walking/Running Distance</option>
+			<option value="viz2">Heart Rate Vs Step Count</option>
+			<option value="viz3">Basal Energy Burnt Vs Step Count</option>
+			<option value="viz4">Basal Energy Burnt Vs Walking/Running Distance</option>
+			<option value="viz5">Distance Walked/Run Time Trend</option>
+			<option value="viz6">Step Count Time Trend</option>
 		  </select>
 		</div>
 
@@ -107,7 +107,7 @@ W209 - Wearables</title>
 		<div id="viz1" class="chart" style="display:none">
 			<div class="row">
 			  <div class="col-9">
-			  Viz 1 9col
+			  <div class="chart1"></div>
 			  </div>
 			  <div class="col-3">
 			  Viz 1 3col
@@ -117,7 +117,7 @@ W209 - Wearables</title>
 		<div id="viz2" class="chart"  style="display:none">
 			<div class="row">
 			  <div class="col-9">
-			  Viz 2 9col
+			  <div class="chart2"></div>
 			  </div>
 			  <div class="col-3">
 			  Viz 2 3col
@@ -127,7 +127,7 @@ W209 - Wearables</title>
 		<div id="viz3" class="chart"  style="display:none">
 			<div class="row">
 			  <div class="col-9">
-			  Viz 3 9col
+			  <div class="chart3"></div>
 			  </div>
 			  <div class="col-3">
 			  Viz 3 3col
@@ -137,7 +137,7 @@ W209 - Wearables</title>
 		<div id="viz4" class="chart"  style="display:none">
 			<div class="row">
 			  <div class="col-9">
-			  Viz 4 9col
+			  <div class="chart4"></div>
 			  </div>
 			  <div class="col-3">
 			  Viz 4 3col
@@ -147,7 +147,7 @@ W209 - Wearables</title>
 		<div id="viz5" class="chart"  style="display:none">
 			<div class="row">
 			  <div class="col-9">
-			  Viz 5 9col
+			  <div class="trend1"></div>
 			  </div>
 			  <div class="col-3">
 			  Viz 5 3col
@@ -157,7 +157,7 @@ W209 - Wearables</title>
 		<div id="viz6" class="chart"  style="display:none">
 			<div class="row">
 			  <div class="col-9">
-			  Viz 6 9col
+			  <div class="trend2"></div>
 			  </div>
 			  <div class="col-3">
 			  Viz 6 3col
@@ -215,10 +215,11 @@ W209 - Wearables</title>
 </main>
 
 {% block scripts %}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-{{super()}}
+
 
 <script>
 	$(document).ready(function(){
@@ -228,6 +229,15 @@ W209 - Wearables</title>
 		}).change();
 	});
 </script>
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/d3.v4.js"></script> 
+<script src="../static/js/app_chart1.js"></script>
+<script src="../static/js/app_chart2.js"></script>
+<script src="../static/js/app_chart3.js"></script>
+<script src="../static/js/app_chart4.js"></script>
+<script src="../static/js/app_trend1.js"></script>
+<script src="../static/js/app_trend2.js"></script>
+{{super()}}
 {% endblock %}
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
