@@ -214,7 +214,6 @@ mouseG.append("path") // this is the black vertical line to follow mouse
           .attr("d", function() {
             var d = "M" + mouse[0] + "," + (height + margin.top);
             d += " " + mouse[0] + "," + margin.top;
-            console.log(d);
             return d;
           });
              

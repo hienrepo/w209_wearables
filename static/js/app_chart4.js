@@ -134,7 +134,6 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
     function types3(d){
       d.x = +d.DistanceWalkingRunning;
       d.y = +d.BasalEnergyBurned;
-      console.log(d);
 
       return d;
     }
