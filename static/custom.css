@@ -42,3 +42,56 @@
   background-color: black;
   color: red;
 }
+
+
+
+    .regression {
+      stroke-width: 2px;
+      stroke: steelblue;
+      stroke-dasharray: 10,5;
+    }
+    .equation1 {
+      font-size: 12px;
+      margin-top: 10px;
+
+    }
+
+    
+    div.tooltip { 
+
+    position: absolute;     
+    text-align: center;     
+    width: 220px;         
+    height: 50px;         
+    padding: 2px;       
+    font: 12px sans-serif;    
+    background: gainsboro;  
+    border: 0px;    
+    border-radius: 8px;     
+    pointer-events: none;     
+}
+
+.line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 2px;
+    }
+
+.distance {
+        fill: none;
+        stroke: green;
+        stroke-width: 1.5px;
+    }
+.step {
+        fill: none;
+        stroke: red;
+        stroke-width: 1.5px;
+    }
+
+      
+
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
