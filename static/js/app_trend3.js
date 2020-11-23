@@ -3,8 +3,8 @@ d3.csv('/static/data/heart_rate_export.csv', function(data){
 	trend3CsvData = data;
 });
 
-var trend3Width = 600,
-  trend3Height = 600,
+var trend3Width = 800,
+  trend3Height = 800,
   trend3Svg = d3
 	.select(".trend3")
 	.append("svg")
@@ -33,7 +33,7 @@ gDrawing
 	.call(d3.axisBottom(trend3X)
 		.ticks(d3.timeDay.every(4))
 		.tickFormat(function(d) {
-			return d3.timeFormat("%m-%d")(d)
+			return d3.timeFormat("%Y-%m-%d")(d)
 		}))
 	.append("text")
 	.style("fill", "black")

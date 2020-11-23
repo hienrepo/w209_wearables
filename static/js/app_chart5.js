@@ -16,8 +16,8 @@ function chart5(data){
 	}
 	
 	var margin = {top: 10, right: 30, bottom: 20, left: 50},
-		width = 700 - margin.left - margin.right,
-		height = 700 - margin.top - margin.bottom;
+		width = 800 - margin.left - margin.right,
+		height = 800 - margin.top - margin.bottom;
 
 	var svg = d3.select(".chart5")
 		.append("svg")
@@ -39,7 +39,11 @@ function chart5(data){
 	
 	svg.append("g")
 		.attr("transform", "translate(0," + height + ")")
-		.call(d3.axisBottom(x).tickSize(0));
+		.call(d3.axisBottom(x)
+			.tickValues(x.domain()
+				.filter(function(d,i){ 
+					return !(i%5);
+				})));
 
 	var y1 = d3.scaleLinear()
 		.domain([0, 15])
@@ -50,11 +54,25 @@ function chart5(data){
 		.range([ height, 0 ]);
 
 	svg.append("g")
-		.call(d3.axisLeft(y1));
+		.attr("class", "axisRed")
+		.call(d3.axisLeft(y1))
+		.append("text")
+		.style("fill", "black")
+		.style("font-size", "8pt")
+		.text("Flights Climbed")
+		.attr("transform", `translate(${80}, 0)`);
 		
 	svg.append("g")
-		.attr("transform", "translate(620,0)")
-		.call(d3.axisRight(y2).tickFormat(d3.formatPrefix(",.0", 1e3)));
+		.attr("transform", "translate(720,0)")
+		.attr("class", "axisBlue")
+		.call(d3.axisRight(y2)
+			.tickFormat(d3.formatPrefix(",.0", 1e3))
+		)
+		.append("text")
+		.style("fill", "black")
+		.style("font-size", "8pt")
+		.text("Steps Walked")
+		.attr("transform", `translate(${-70}, 0)`);
 
 	var column = d3.scaleBand()
 		.domain(columns)
@@ -63,7 +81,7 @@ function chart5(data){
 
 	var color = d3.scaleOrdinal()
 		.domain(columns)
-		.range(['#e41a1c','#377eb8'])
+		.range(['red','blue'])
 
 	svg.append("g")
 		.selectAll("g")
