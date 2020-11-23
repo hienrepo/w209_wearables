@@ -86,7 +86,7 @@ W209 - Wearables</title>
 
 <div class="jumbotron" id="visualize-section">
 	<h2 style="text-align: center;padding-bottom: 80px;">Visualizations</h2>
-	<div class="container">
+	<div class="container-fluid p-0">
 		<div class="input-group mb-3">
 		  <div class="input-group-prepend">
 			<label class="input-group-text" for="vizselection">Options</label>
@@ -292,12 +292,14 @@ W209 - Wearables</title>
 			$(".chart").hide();
 			$("#" + $(this).val()).fadeIn(700);
 			
-			if($(this).val() == "viz7"){
-				jQuery(".container").css("margin-left", "0px");
-			}
-			else{
-				jQuery(".container").css("margin-left", "auto");
-			}
+			<!-- if($(this).val() == "viz7"){ -->
+				<!-- jQuery(".container").css("margin-left", "0px"); -->
+				<!-- jQuery(".container").css("margin-right", "0px"); -->
+			<!-- } -->
+			<!-- else{ -->
+				<!-- jQuery(".container").css("margin-left", "auto"); -->
+				<!-- jQuery(".container").css("margin-right", "auto"); -->
+			<!-- } -->
 		}).change();
 	});
 
