@@ -16,8 +16,8 @@ function chart5(data){
 	}
 	
 	var margin = {top: 10, right: 30, bottom: 20, left: 50},
-		width = 600 - margin.left - margin.right,
-		height = 600 - margin.top - margin.bottom;
+		width = 700 - margin.left - margin.right,
+		height = 700 - margin.top - margin.bottom;
 
 	var svg = d3.select(".chart5")
 		.append("svg")
@@ -53,7 +53,7 @@ function chart5(data){
 		.call(d3.axisLeft(y1));
 		
 	svg.append("g")
-		.attr("transform", "translate(420,0)")
+		.attr("transform", "translate(620,0)")
 		.call(d3.axisRight(y2).tickFormat(d3.formatPrefix(",.0", 1e3)));
 
 	var column = d3.scaleBand()

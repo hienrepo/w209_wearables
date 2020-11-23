@@ -30,7 +30,11 @@ trend3Y.domain([0, 220]);
 gDrawing
 	.append("g")
 	.attr("transform", `translate(0,${trend3Iheight})`)
-	.call(d3.axisBottom(trend3X))
+	.call(d3.axisBottom(trend3X)
+		.ticks(d3.timeDay.every(4))
+		.tickFormat(function(d) {
+			return d3.timeFormat("%m-%d")(d)
+		}))
 	.append("text")
 	.style("fill", "black")
 	.style("font-size", "8pt")
@@ -53,7 +57,7 @@ gDrawing
 	.attr("width", trend3Iwidth / 7.5)
 	.attr("height", trend3Iheight);
 
-function update(myData){
+function trend3Update(myData){
 	document.getElementById("ageoutput").innerHTML = document.getElementById("ageinput").value;
 	
 	var maxrate = 220 - parseFloat(document.getElementById("ageinput").value);
@@ -94,6 +98,7 @@ function update(myData){
 
 	marks.exit().remove();
 	
+	
 	trend3Svg
 		.on('mousemove', function() {
 			if(d3.event.pageX >= trend3Margin.left + trend3Margin.right + trend3Iwidth / 15 && d3.event.pageX <= trend3Width - trend3Iwidth / 15 + 3){
@@ -101,7 +106,7 @@ function update(myData){
 				var avgoutput = (parseFloat(trend3CsvData[i - 1].value) + parseFloat(trend3CsvData[i].value) + parseFloat(trend3CsvData[i + 1].value) + parseFloat(trend3CsvData[i + 2].value)) / 4
 				document.getElementById("avgoutput").innerHTML = Math.round(avgoutput);
 				
-				d3.selectAll("rect").remove();
+				trend3Svg.selectAll("rect").remove();
 				d3.select(this)
 					.append("rect")
 					.attr("width", trend3Iwidth / 7.5)
@@ -113,6 +118,7 @@ function update(myData){
 				
 			}
 		});
+	
 }
 
-setTimeout(function() { update(trend3CsvData); }, 500);
+setTimeout(function() { trend3Update(trend3CsvData); }, 500);
