@@ -16,7 +16,8 @@ Simple Apple Health XML to CSV
 import pandas as pd
 import xml.etree.ElementTree as ET
 import heart_rate_parser
-import activity_correlations_parser
+import flights_steps_parser
+import correlations_data
 
 # %% Function Definitions
 def pre_process():
@@ -25,10 +26,10 @@ def pre_process():
     """
 
     print("Pre-processing...", end="")
-    with open("data/export.xml") as f:
+    with open("static/data/export.xml") as f:
         newText = f.read().replace("\x0b", "")
 
-    with open("data/processed_export.xml", "w") as f:
+    with open("static/data/processed_export.xml", "w") as f:
         f.write(newText)
 
     print("done!")
@@ -42,7 +43,7 @@ def convert_xml():
     """
 
     print("Converting XML file...", end="")
-    etree = ET.parse("data/processed_export.xml")
+    etree = ET.parse("static/data/processed_export.xml")
 
     attribute_list = []
 
@@ -103,7 +104,7 @@ def convert_xml():
 
 def save_to_csv(health_df):
     print("Saving CSV file...", end="")
-    health_df.to_csv("data/apple_health_export.csv", index=False)
+    health_df.to_csv("static/data/apple_health_export.csv", index=False)
     print("done!")
 
     return
@@ -114,8 +115,8 @@ def main():
     health_df = convert_xml()
     save_to_csv(health_df)
     heart_rate_parser.parse()
-    activity_correlations_parser.parse()
-
+    flights_steps_parser.parse()
+    correlations_data.parse()
     return
 
 

@@ -98,7 +98,7 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
           })
           .attr("cy", function(d){ return y(d.y); })
           .attr("cx", function(d){ return x(d.x); })
-          .on("mouseover", function(d) {    
+          .on("mouseover", function(d) {
             div.transition()        
                 .style("opacity", .8);    
             div.html("<p> Walking Running Distance: " + d.x + "<br/> Heart Rate:" + d.y ) 

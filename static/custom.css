@@ -20,45 +20,41 @@
 /* } */
 
 #home-intro {
-  padding: 50vh 0;
-  background: #123 url('/static/watch.jpg');
-  background-size: cover;
-  background-blend-mode: multiply;
-  color: white;
-  text-align: center;
+	padding: 50vh 0;
+	background: #123 url('/static/watch.jpg');
+	background-size: cover;
+	background-blend-mode: multiply;
+	color: white;
+	text-align: center;
 }
 
 .home-about {
-  padding: 4em 0;
-  max-width: 900px;
-  margin: 0 auto;
+	padding: 4em 0;
+	max-width: 900px;
+	margin: 0 auto;
 }
 
 .jumbotron {
-  background: #f4f4f4;
+	background: #f4f4f4;
 }
 
 .test1 {
-  background-color: black;
-  color: red;
+	background-color: black;
+	color: red;
 }
 
+.regression {
+	stroke-width: 2px;
+    stroke: steelblue;
+    stroke-dasharray: 10,5;
+}
 
-
-    .regression {
-      stroke-width: 2px;
-      stroke: steelblue;
-      stroke-dasharray: 10,5;
-    }
-    .equation1 {
-      font-size: 12px;
-      margin-top: 10px;
-
-    }
-
+.equation1 {
+    font-size: 12px;
+    margin-top: 10px;
+}
     
-    div.tooltip { 
-
+div.tooltip { 
     position: absolute;     
     text-align: center;     
     width: 220px;         
@@ -72,26 +68,30 @@
 }
 
 .line {
-        fill: none;
-        stroke: steelblue;
-        stroke-width: 2px;
-    }
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+}
 
 .distance {
-        fill: none;
-        stroke: green;
-        stroke-width: 1.5px;
-    }
+    fill: none;
+    stroke: green;
+    stroke-width: 1.5px;
+}
+	
 .step {
-        fill: none;
-        stroke: red;
-        stroke-width: 1.5px;
-    }
-
-      
+    fill: none;
+    stroke: red;
+    stroke-width: 1.5px;
+}
 
 .zoom {
-  cursor: move;
-  fill: none;
-  pointer-events: all;
+	cursor: move;
+	fill: none;
+	pointer-events: all;
+}
+
+table, th, td {
+	text-align: center;
+	border: 1px solid black;
 }

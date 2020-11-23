@@ -87,7 +87,6 @@ W209 - Wearables</title>
 <div class="jumbotron" id="visualize-section">
 	<h2 style="text-align: center;padding-bottom: 80px;">Visualizations</h2>
 	<div class="container">
-	
 		<div class="input-group mb-3">
 		  <div class="input-group-prepend">
 			<label class="input-group-text" for="vizselection">Options</label>
@@ -100,71 +99,136 @@ W209 - Wearables</title>
 			<option value="viz4">Basal Energy Burnt Vs Walking/Running Distance</option>
 			<option value="viz5">Distance Walked/Run Time Trend</option>
 			<option value="viz6">Step Count Time Trend</option>
+			<option value="viz7">Heart Rate Time Trend</option>
+			<option value="viz8">Flights Climbed and Steps Taken</option>
 		  </select>
 		</div>
 
 		
 		<div id="viz1" class="chart" style="display:none">
 			<div class="row">
-			  <div class="col-9">
-			  <div class="chart1"></div>
-			  </div>
-			  <div class="col-3">
-			  Viz 1 3col
-			  </div>
+				<div class="col-9">
+					<div class="chart1"></div>
+				</div>
+				<div class="col-3">
+					Viz 1 3col
+				</div>
 			</div>
 		</div>
-		<div id="viz2" class="chart"  style="display:none">
+		<div id="viz2" class="chart" style="display:none">
 			<div class="row">
-			  <div class="col-9">
-			  <div class="chart2"></div>
-			  </div>
-			  <div class="col-3">
-			  Viz 2 3col
-			  </div>
+				<div class="col-9">
+					<div class="chart2"></div>
+				</div>
+				<div class="col-3">
+					Viz 2 3col
+				</div>
 			</div>
 		</div>
-		<div id="viz3" class="chart"  style="display:none">
+		<div id="viz3" class="chart" style="display:none">
 			<div class="row">
-			  <div class="col-9">
-			  <div class="chart3"></div>
-			  </div>
-			  <div class="col-3">
-			  Viz 3 3col
-			  </div>
+				<div class="col-9">
+					<div class="chart3"></div>
+				</div>
+				<div class="col-3">
+					Viz 3 3col
+				</div>
 			</div>
 		</div>
-		<div id="viz4" class="chart"  style="display:none">
+		<div id="viz4" class="chart" style="display:none">
 			<div class="row">
-			  <div class="col-9">
-			  <div class="chart4"></div>
-			  </div>
-			  <div class="col-3">
-			  Viz 4 3col
-			  </div>
+				<div class="col-9">
+					<div class="chart4"></div>
+				</div>
+				<div class="col-3">
+					Viz 4 3col
+				</div>
 			</div>
 		</div>
-		<div id="viz5" class="chart"  style="display:none">
+		<div id="viz5" class="chart" style="display:none">
 			<div class="row">
-			  <div class="col-9">
-			  <div class="trend1"></div>
-			  </div>
-			  <div class="col-3">
-			  Viz 5 3col
-			  </div>
+				<div class="col-9">
+					<div class="trend1"></div>
+				</div>
+				<div class="col-3">
+					Viz 5 3col
+				</div>
 			</div>
 		</div>
-		<div id="viz6" class="chart"  style="display:none">
+		<div id="viz6" class="chart" style="display:none">
 			<div class="row">
-			  <div class="col-9">
-			  <div class="trend2"></div>
-			  </div>
-			  <div class="col-3">
-			  Viz 6 3col
-			  </div>
+				<div class="col-9">
+					<div class="trend2"></div>
+				</div>
+				<div class="col-3">
+					Viz 6 3col
+				</div>
+			</div>
+		</div>
+		<div id="viz7" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+					<div class="hud">
+						<b>Age:</b>
+						<input type="range" id="ageinput" value="22" min="0" max="100" oninput="update(csvData);">
+						<output id="ageoutput">22</output>
+						&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+						<b>4-day average:</b>
+						<output id="avgoutput">22</output>
+						bpm
+					</div>
+					<div class="trend3"></div>
+				</div>
+				<div class="col-4">
+					<table>
+						<thead>
+						  <tr>
+							<th>Color</th>
+							<th>Exercise Intensity</th>
+							<th>Heart Rate</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td><div style="color:green;">Green</div></td>
+							<td>Moderate</td>
+							<td><span id="moderatelow"></span> to <span id="moderatehigh"></span></td>
+						  </tr>
+						  <tr>
+							<td><div style="color:orange;">Orange</div></td>
+							<td>Vigorous</td>
+							<td><span id="vigorouslow"></span> to <span id="vigoroushigh"></span></td>
+						  </tr>
+						  <tr>
+							<td><div style="color:red;">Red</div></td>
+							<td>Overworked</td>
+							<td><span id="overworkedlow"></span> or more</td>
+						  </tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>		
-
+		<div id="viz8" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+					<div class="chart5"></div>
+				</div>
+				<div class="col-4">
+					<table>
+						<thead>
+						  <tr>
+							<th>Date</th>
+							<th>Flights</th>
+							<th>Steps</th>
+						  </tr>
+						</thead>
+						<tbody id="table8">
+						</tbody>
+					</table>
+			  </div>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -216,27 +280,38 @@ W209 - Wearables</title>
 
 {% block scripts %}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+<script src="../static/js/jquery.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
 	$(document).ready(function(){
 		$("#vizselection").on('change', function(){
 			$(".chart").hide();
 			$("#" + $(this).val()).fadeIn(700);
+			
+			if($(this).val() == "viz7"){
+				jQuery(".container").css("margin-left", "0px");
+			}
+			else{
+				jQuery(".container").css("margin-left", "auto");
+			}
 		}).change();
 	});
+
 </script>
-<script src="../static/js/jquery.js"></script>
-<script src="../static/js/d3.v4.js"></script> 
+<script src="../static/js/d3.v4.js"></script>
+
 <script src="../static/js/app_chart1.js"></script>
 <script src="../static/js/app_chart2.js"></script>
 <script src="../static/js/app_chart3.js"></script>
 <script src="../static/js/app_chart4.js"></script>
+<script src="../static/js/app_chart5.js"></script>
 <script src="../static/js/app_trend1.js"></script>
 <script src="../static/js/app_trend2.js"></script>
+<script src="../static/js/app_trend3.js"></script>
 {{super()}}
 {% endblock %}
 
