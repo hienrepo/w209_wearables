@@ -1,0 +1,263 @@
+{% extends "bootstrap/base.html" %}
+{% block html_attribs %} lang="en"{% endblock %}
+
+{% block head %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>{% block title %}
+W209 - Wearables</title>
+{% endblock %}
+
+
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='custom.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">	  
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- Main block -->
+<main role="main">
+
+<section id="summary-intro">
+<div class="row justify-content-center">
+    <div class="col-6">
+		<h1 style="font-weight: bold">Hello, and welcome to Your Health Data: Visualized! <br><br> 
+			<h3>The tables and charts below describe your activities between <span class="summary_stats" id="start_summary"></span>  and <span class="summary_stats" id="end_summary"></span>. You did quite a bit in this time, with <span class="summary_stats" id="rows_summary"></span> health data entries recorded!<br><br>
+			It looks like you took <span class="summary_stats" id="sctot_summary"></span> steps in this time, amounting to an average distance of <span class="summary_stats" id="dwave_summary"></span> miles per day. Your average measured heart rate as you completed these activities was <span class="summary_stats" id="hrave_summary"></span>! <br><br>
+			That’s enough from us—Why don’t you take a look yourself?
+			</h3>
+		</h1>
+		<p style="opacity:0.7;"><a class="btn btn-outline-light btn-lg" href="#visualize-section" role="button">Explore the data &raquo;</a></p>
+		<p style="opacity:0.7;"><a class="btn btn-outline-light btn-lg" href="/" role="button">Homepage &raquo;</a></p>
+    </div>
+  </div>
+
+</section>
+
+<div class="jumbotron" id="visualize-section">
+	<h2 style="text-align: center;padding-bottom: 80px;">Your Visualizations</h2>
+	<div class="container-fluid p-0">
+		<div class="input-group mb-3">
+		  <div class="input-group-prepend">
+			<label class="input-group-text" for="vizselection">Options</label>
+		  </div>
+		  <select class="custom-select" id="vizselection">
+			<option selected>Choose...</option>
+			<option value="viz1">Heart Rate Vs Walking/Running Distance</option>
+			<option value="viz2">Heart Rate Vs Step Count</option>
+			<option value="viz3">Basal Energy Burnt Vs Step Count</option>
+			<option value="viz4">Basal Energy Burnt Vs Walking/Running Distance</option>
+			<option value="viz5">Distance Walked/Run Time Trend</option>
+			<option value="viz6">Step Count Time Trend</option>
+			<option value="viz7">Heart Rate Time Trend</option>
+			<option value="viz8">Flights Climbed and Steps Taken</option>
+		  </select>
+		</div>
+
+		
+		<div id="viz1" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+			  <div class="chart1"></div>
+			  </div>
+			  <div class="col-4">
+			  <div class="chart1s1"> Average Heart Rate: </div>
+			  <div class="chart1s2">  </div>
+			  <div class="chart1s3"> <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates">Recommended Heart Rate 95/min - 160/min </a></div>
+			  <div class="chart1s4"> Average Distance Walked/Run: </div>
+			  <div class="chart1s5"> </div>
+			  <div class="chart1s6"> </div>
+			</div>
+			</div>
+		</div>
+		<div id="viz2" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+			  <div class="chart2"></div>
+			  </div>
+			  <div class="col-4">
+			  <div class="chart1s1"> Average Heart Rate: </div>
+			  <div class="chart2s2"> </div>
+			  <div class="chart1s3"> <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates">Recommended Heart Rate 95/min - 160/min </a></div>
+			  <div class="chart2s4"> Average Step Count: </div>
+			  <div class="chart2s5"> </div>
+			  <div class="chart2s6"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="viz3" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+			  <div class="chart3"></div>
+			  </div>
+			  <div class="col-4">
+			  <div class="chart3s1"> Average Basal Energy Burnt: </div>
+			  <div class="chart3s2"> </div>
+			  <div class="chart3s3"> <a href="https://fitfolk.com/average-basal-energy-expenditure-bee-basal-metabolic-rate-bmr/#:~:text=The%20average%20basal%20energy%20expenditure,a%20man%20its%20roughly%201%2C800.">Recommended Basal Energy Burnt 58 Calories / hr </a></div>
+			  <div class="chart2s4"> Average Step Count: </div>
+			  <div class="chart3s5"> </div>
+			  <div class="chart3s6"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="viz4" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+			  <div class="chart4"></div>
+			  </div>
+			  <div class="col-4">
+			  <div class="chart3s1"> Average Basal Energy Burnt: </div>
+			  <div class="chart4s2"> </div>
+			  <div class="chart3s3"> <a href="https://fitfolk.com/average-basal-energy-expenditure-bee-basal-metabolic-rate-bmr/#:~:text=The%20average%20basal%20energy%20expenditure,a%20man%20its%20roughly%201%2C800.">Recommended Basal Energy Burnt 58 Calories / hr </a></div>
+			  <div class="chart1s4"> Average Distance Walked/Run: </div>
+			  <div class="chart4s5"> </div>
+			  <div class="chart4s6"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="viz5" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+			  <div class="trend1"></div>
+			  </div>
+			  <div class="col-4">
+			  <div class="chart5s1"> Average Distance Walked/Run: </div>
+			  <div class="chart5s2"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="viz6" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+			  <div class="trend2"></div>
+			  </div>
+			  <div class="col-4">
+			  <div class="chart6s1"> Average Step Count: </div>
+			  <div class="chart6s2"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="viz7" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+					<div class="hud">
+						<b>Age:</b>
+						<input type="range" id="ageinput" value="22" min="0" max="100" oninput="trend3Update(trend3CsvData);">
+						<output id="ageoutput">22</output>
+						&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+						<b>4-day average:</b>
+						<output id="avgoutput">22</output>
+						bpm
+					</div>
+					<div class="trend3"></div>
+				</div>
+				<div class="col-4">
+					<table>
+						<thead>
+						  <tr>
+							<th>Color</th>
+							<th>Exercise Intensity</th>
+							<th>Heart Rate</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td><div style="color:green;">Green</div></td>
+							<td>Moderate</td>
+							<td><span id="moderatelow"></span> to <span id="moderatehigh"></span></td>
+						  </tr>
+						  <tr>
+							<td><div style="color:orange;">Orange</div></td>
+							<td>Vigorous</td>
+							<td><span id="vigorouslow"></span> to <span id="vigoroushigh"></span></td>
+						  </tr>
+						  <tr>
+							<td><div style="color:red;">Red</div></td>
+							<td>Overworked</td>
+							<td><span id="overworkedlow"></span> or more</td>
+						  </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>		
+		<div id="viz8" class="chart" style="display:none">
+			<div class="row">
+				<div class="col-8">
+					<div class="chart5"></div>
+				</div>
+				<div class="col-4">
+					<table>
+						<thead>
+						  <tr>
+							<th>Date</th>
+							<th>Flights</th>
+							<th>Steps</th>
+						  </tr>
+						</thead>
+						<tbody id="table8">
+						</tbody>
+					</table>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</main>
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+<script src="../static/js/jquery.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+	$(document).ready(function(){
+		$("#vizselection").on('change', function(){
+			$(".chart").hide();
+			$("#" + $(this).val()).fadeIn(700);
+			
+			<!-- if($(this).val() == "viz7"){ -->
+				<!-- jQuery(".container").css("margin-left", "0px"); -->
+				<!-- jQuery(".container").css("margin-right", "0px"); -->
+			<!-- } -->
+			<!-- else{ -->
+				<!-- jQuery(".container").css("margin-left", "auto"); -->
+				<!-- jQuery(".container").css("margin-right", "auto"); -->
+			<!-- } -->
+		}).change();
+	});
+
+</script>
+<script src="../static/js/d3.v4.js"></script>
+
+<script src="../static/js/app_chart1.js"></script>
+<script src="../static/js/app_chart2.js"></script>
+<script src="../static/js/app_chart3.js"></script>
+<script src="../static/js/app_chart4.js"></script>
+<script src="../static/js/app_chart5.js"></script>
+<script src="../static/js/app_trend1.js"></script>
+<script src="../static/js/app_trend2.js"></script>
+<script src="../static/js/app_trend3.js"></script>
+<script src="../static/js/app_summary.js"></script>
+{{super()}}
+{% endblock %}
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+
+{% endblock %}

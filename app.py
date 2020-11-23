@@ -43,11 +43,11 @@ def upload():
 				print("File not allowed")
 				return redirect(request.url)
 				
-			xml.save('./data/user_upload' + '.' + ext)
+			xml.save('./static/data/user_upload' + '.' + ext)
 			
 			print("File saved")
 			
-			return redirect(request.url)
+			return render_template('results.html')
 			
 	return render_template('index.html')
 

@@ -20,12 +20,29 @@
 /* } */
 
 #home-intro {
-	padding: 50vh 0;
+	padding: 35vh 0;
 	background: #123 url('/static/watch.jpg');
 	background-size: cover;
 	background-blend-mode: multiply;
 	color: white;
 	text-align: center;
+}
+
+#summary-intro {
+	padding: 20vh 0;
+	background: #123 url('/static/watch.jpg');
+	background-size: cover;
+	background-blend-mode: multiply;
+	color: white;
+	text-align: center;
+}
+
+#summary-intro .summary_stats {
+	color: coral;
+	font-size: 35px;
+	padding: 10px;
+	text-align: center;
+	letter-spacing: 1px;
 }
 
 .home-about {
