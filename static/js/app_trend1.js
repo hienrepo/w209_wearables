@@ -3,16 +3,16 @@ var trend1 = trend1();
 
 function trend1(){ 
 
-var margin = {top: 10, right: 30, bottom: 90, left: 30},
-    margin2 = {top: 330, right: 30, bottom: 10, left: 30},
-    width = 700 - margin.left - margin.right,
+var margin = {top: 10, right: 80, bottom: 90, left: 30},
+    margin2 = {top: 330, right: 80, bottom: 10, left: 30},
+    width = 780 - margin.left - margin.right,
     height = 380 - margin.top - margin.bottom,
     height2 = 380- margin2.top - margin2.bottom;
 
 var svg = d3.select(".trend1").append("svg")
         .attr("width", width + margin.left + margin.right )
         .attr("height", height + margin.top + margin.bottom + 30 )
-      .append("g")
+        .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
 var lineOpacity = 1;
@@ -87,10 +87,17 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")       
     .style("opacity", 0);
 
+d3.json("/static/data/data_summary.json", function(data) {
+
+      var str2 = parseFloat(data['dwave']).toFixed(1);
+      var summary2 =  str2.concat(" Miles/Day");
+      document.getElementsByClassName("chart5s2")[0].innerHTML = summary2;
+
+});      
+
 d3.csv("/static/data/data_trend.csv", function(error, data) {
   if (error) throw error;
   
-
   // format the data
   data.forEach(function(d) {
       d.date = parseTime(d.date);
@@ -164,7 +171,13 @@ svg.append("rect")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
   .call(zoom);
 
-
+svg.append('line')
+    .style("stroke", "silver")
+    .style("stroke-width", 3)
+    .attr("x1", margin.left + 700 )
+    .attr("y1", 0)
+    .attr("x2", margin.left + 700 )
+    .attr("y2", height);
 
 // tooltip starts here  
 

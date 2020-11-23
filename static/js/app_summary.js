@@ -1,35 +1,24 @@
-
 var summary = summary();
 
-function summary(){  
+function summary(){
 
-var margin = {top: 5, right: 5, bottom: 50, left: 35},
-      width = 400 - margin.left - margin.right,
-      height = 700 - margin.top - margin.bottom;
+    d3.json("/static/data/data_summary.json", function(data) {
 
-    var parseTime = d3.timeParse("%Y-%m-%d");
+    var summary = "The tables and charts below describe your activities between "
 
-    var svg = d3.select(".summary").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom  )
-      .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    summary = summary.concat(data['start'])
+    summary = summary.concat(" and ")
+    summary = summary.concat(data['end']).concat(".").concat(" You did quite a bit in this time, with ")
+    summary = summary.concat(data['rows']).concat(" health data entries recorded!")
+    summary = summary.concat("It looks like you took ").concat(parseFloat(data['scave']).toFixed(1))
+    summary = summary.concat(" Steps/Day in this time, amounting to an average distance of ")
+    summary = summary.concat(parseFloat(data['dwave']).toFixed(1))
+    summary = summary.concat(" mi per day.  Your average measured heart rate as you completed these activities was ")
+    summary = summary.concat(parseFloat(data['hrave']).toFixed(1))
+    summary = summary.concat("/min. That’s enough from us—Why don’t you take a look yourself?")
 
-svg.append('line')
-    .style("stroke", "silver")
-    .style("stroke-width", 3)
-    .attr("x1", margin.left )
-    .attr("y1", 0)
-    .attr("x2", margin.left  )
-    .attr("y2", height);
+    document.getElementsByClassName("summary")[0].innerHTML = summary;
 
-d3.json("/static/data/data_summary.json", function(data) {
-    document.getElementsByClassName("summaryc1")[0].innerHTML = data['rows'];
-    document.getElementsByClassName("summaryc2")[0].innerHTML = data['start'] + " to " + data['end'];
-    document.getElementsByClassName("summaryc3")[0].innerHTML = parseFloat(data['hrave']).toFixed(2);
-    document.getElementsByClassName("summaryc4")[0].innerHTML = parseFloat(data['scave']).toFixed(2);
-    document.getElementsByClassName("summaryc5")[0].innerHTML = parseFloat(data['dwave']).toFixed(2) + " Miles";
-});
-    
-}
-    
+});  
+
+} 
