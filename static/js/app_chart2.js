@@ -2,8 +2,8 @@
 var chart2 = chart2();
 
 function chart2(){  
-var margin = {top: 20, right: 5, bottom: 50, left: 60},
-      width = 700- margin.left - margin.right,
+var margin = {top: 20, right: 80, bottom: 50, left: 60},
+      width = 780- margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
     var svg = d3.select(".chart2").append("svg")
@@ -25,7 +25,19 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
         .scale(y);
     var div = d3.select("body").append("div") 
               .attr("class", "tooltip")       
-              .style("opacity", 0);      
+              .style("opacity", 0);     
+
+    d3.json("/static/data/data_summary.json", function(data) {
+      var str1 = parseFloat(data['hrave']).toFixed(2);
+      var summary1 =  str1.concat(" / min");
+      document.getElementsByClassName("chart2s2")[0].innerHTML = summary1;
+
+      var str2 = parseFloat(data['scave']).toFixed(1);
+      var summary2 =  str2.concat(" /Day");
+      document.getElementsByClassName("chart2s5")[0].innerHTML = summary2;
+      
+
+});             
 
     d3.csv("/static/data/data_scatter.csv", types2, function(error, data){
 
@@ -126,11 +138,20 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
 
     });
 
+    svg.append('line')
+    .style("stroke", "silver")
+    .style("stroke-width", 3)
+    .attr("x1", margin.left + 625 )
+    .attr("y1", 0)
+    .attr("x2", margin.left + 625 )
+    .attr("y2", height);
+
     svg.append("circle").attr("cx",260).attr("cy",30).attr("r", 6).style("fill", "red")
     svg.append("circle").attr("cx",260).attr("cy",45).attr("r", 6).style("fill", "lightsalmon")
     svg.append("text").attr("x", 270).attr("y", 30).text("Recommended Heart Rate").style("font-size", "12px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 270).attr("y", 45).text("Not Recommended Heart Rate").style("font-size", "12px").attr("alignment-baseline","middle")
 
+    
 
     function types2(d){
       d.x = +d.StepCount;

@@ -1,8 +1,12 @@
 var chart1 = chart1();
 
 function chart1(){  
-var margin = {top: 20, right: 5, bottom: 50, left: 60},
-      width = 700- margin.left - margin.right,
+
+
+
+
+    var margin = {top: 20, right: 80, bottom: 50, left: 60},
+      width = 780- margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
     var svg = d3.select(".chart1").append("svg")
@@ -22,7 +26,22 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
         .scale(y);
     var div = d3.select("body").append("div") 
               .attr("class", "tooltip")       
-              .style("opacity", 0);    
+              .style("opacity", 0);  
+
+    d3.json("/static/data/data_summary.json", function(data) {
+      var str1 = parseFloat(data['hrave']).toFixed(2);
+      var summary1 =  str1.concat(" / min");
+      document.getElementsByClassName("chart1s2")[0].innerHTML = summary1;
+
+      var str2 = parseFloat(data['dwave']).toFixed(1);
+      var summary2 =  str2.concat(" Miles/Day");
+      document.getElementsByClassName("chart1s5")[0].innerHTML = summary2;
+
+});  
+
+
+
+            
 
     d3.csv("/static/data/data_scatter.csv", types, function(error, data){
 
@@ -98,7 +117,7 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
           })
           .attr("cy", function(d){ return y(d.y); })
           .attr("cx", function(d){ return x(d.x); })
-          .on("mouseover", function(d) {
+          .on("mouseover", function(d) {    
             div.transition()        
                 .style("opacity", .8);    
             div.html("<p> Walking Running Distance: " + d.x + "<br/> Heart Rate:" + d.y ) 
@@ -129,6 +148,15 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
     svg.append("text").attr("x", 270).attr("y", 30).text("Recommended Heart Rate").style("font-size", "12px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 270).attr("y", 45).text("Not Recommended Heart Rate").style("font-size", "12px").attr("alignment-baseline","middle")
 
+    svg.append('line')
+    .style("stroke", "silver")
+    .style("stroke-width", 3)
+    .attr("x1", margin.left + 625 )
+    .attr("y1", 0)
+    .attr("x2", margin.left + 625 )
+    .attr("y2", height);
+
+    
 
     function types(d){
       //d.x = +d.HeartRate;
@@ -175,34 +203,37 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
 
 
       // Print the equation below the chart
-      /*
+      
       if (chartType==="DHR"){
         if (m > 0){
-          document.getElementsByClassName("summary6")[0].innerHTML = "Heart Rate increases with Distance Walked/Run";
+          document.getElementsByClassName("chart1s6")[0].innerHTML = "Heart Rate increases with Distance Walked/Run";
         }
         else{
-          document.getElementsByClassName("summary6")[0].innerHTML = "Heart Rate decreases with Distance Walked/Run";
+          document.getElementsByClassName("chart1s6")[0].innerHTML = "Heart Rate decreases with Distance Walked/Run";
         }
       }  
 
       
+      
       else if (chartType==="SHR"){
         if (m>0){
-            document.getElementsByClassName("summary7")[0].innerHTML = "Heart Rate increases with Step Count";
+            document.getElementsByClassName("chart2s6")[0].innerHTML = "Heart Rate increases with Step Count";
         }
         else{
-            document.getElementsByClassName("summary7")[0].innerHTML = "Heart Rate decreases with Step Count";
+            document.getElementsByClassName("chart2s6")[0].innerHTML = "Heart Rate decreases with Step Count";
         }
 
         
       }
 
+
+
       else  if (chartType==="SBE"){
         if (m>0){
-            document.getElementsByClassName("summary8")[0].innerHTML = "Basal Energy Burnt increases with Step Count";
+            document.getElementsByClassName("chart3s6")[0].innerHTML = "Basal Energy Burnt increases with Step Count";
         }
         else{
-            document.getElementsByClassName("summary8")[0].innerHTML = "Basal Energy Burnt decreases with Step Count";
+            document.getElementsByClassName("chart3s6")[0].innerHTML = "Basal Energy Burnt decreases with Step Count";
         }
         
       }
@@ -211,14 +242,14 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
 
       else{
         if (m>0){
-            document.getElementsByClassName("summary9")[0].innerHTML = "Basal Energy Burnt increases with Distance Walked/Run";
+            document.getElementsByClassName("chart4s6")[0].innerHTML = "Basal Energy Burnt increases with Distance Walked/Run";
         }
         else{
-            document.getElementsByClassName("summary9")[0].innerHTML = "Basal Energy Burnt increases with Distance Walked/Run";
+            document.getElementsByClassName("chart4s6")[0].innerHTML = "Basal Energy Burnt increases with Distance Walked/Run";
         }
         
       }
-      */
+      
       //document.getElementsByClassName("equation1")[0].innerHTML = "y = " + m + "x + " + b;
       //  document.getElementsByClassName("equation1")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
      
@@ -239,6 +270,7 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
           y: b
         }
       }
+
 
     }
 

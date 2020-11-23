@@ -2,8 +2,8 @@
 var chart3 = chart3();
 
 function chart3(){  
-var margin = {top: 20, right: 5, bottom: 50, left: 60},
-      width = 700- margin.left - margin.right,
+var margin = {top: 20, right: 80, bottom: 50, left: 60},
+      width = 780- margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
     var svg = d3.select(".chart3").append("svg")
@@ -25,7 +25,20 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
         .scale(y);
     var div = d3.select("body").append("div") 
               .attr("class", "tooltip")       
-              .style("opacity", 0);      
+              .style("opacity", 0);    
+
+    d3.json("/static/data/data_summary.json", function(data) {
+      var str1 = parseFloat(data['beave']).toFixed(2);
+      var summary1 =  str1.concat(" Calories / hr");
+      document.getElementsByClassName("chart3s2")[0].innerHTML = summary1;
+
+      var str2 = parseFloat(data['scave']).toFixed(1);
+      var summary2 =  str2.concat(" /Day");
+      document.getElementsByClassName("chart3s5")[0].innerHTML = summary2;
+      
+
+});             
+            
 
     d3.csv("/static/data/data_basal.csv", types3, function(error, data){
 
@@ -125,6 +138,14 @@ var margin = {top: 20, right: 5, bottom: 50, left: 60},
        ;
 
     });
+
+    svg.append('line')
+    .style("stroke", "silver")
+    .style("stroke-width", 3)
+    .attr("x1", margin.left + 625 )
+    .attr("y1", 0)
+    .attr("x2", margin.left + 625 )
+    .attr("y2", height);
 
     svg.append("circle").attr("cx",240).attr("cy",70).attr("r", 6).style("fill", "goldenrod")
     svg.append("circle").attr("cx",240).attr("cy",85).attr("r", 6).style("fill", "wheat")
