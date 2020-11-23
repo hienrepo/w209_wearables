@@ -43,8 +43,22 @@
 	color: red;
 }
 
+
+table, th, td {
+	text-align: center;
+	border: 1px solid black;
+}
+
+.axisRed {
+	stroke: red;
+}
+
+.axisBlue {
+	stroke: blue;
+}
+
 .regression {
-	stroke-width: 2px;
+    stroke-width: 2px;
     stroke: steelblue;
     stroke-dasharray: 10,5;
 }
@@ -78,7 +92,7 @@ div.tooltip {
     stroke: green;
     stroke-width: 1.5px;
 }
-	
+    
 .step {
     fill: none;
     stroke: red;
@@ -86,20 +100,194 @@ div.tooltip {
 }
 
 .zoom {
-	cursor: move;
-	fill: none;
-	pointer-events: all;
+    cursor: move;
+    fill: none;
+    pointer-events: all;
 }
 
-table, th, td {
-	text-align: center;
-	border: 1px solid black;
-}
+.chart1s1 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 60px;
 
-.axisRed {
-	stroke: red;
-}
+    }
+ .chart1s2 {
+      position: absolute;
+      left: 150px;
+      font-size: 14px;
+      margin-top: 60px;
+      font-weight: bold;
 
-.axisBlue {
-	stroke: blue;
-}
+    }   
+
+    .chart1s3 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 90px;
+      font-weight: italic;
+
+    }
+
+ .chart1s4 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 120px;
+
+    }
+ .chart1s5 {
+      position: absolute;
+      left: 220px;
+      font-size: 14px;
+      margin-top: 120px;
+      font-weight: bold;
+
+    }
+
+    .chart1s6 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 150px;
+
+    }
+
+    .chart2s2 {
+      position: absolute;
+      left: 150px;
+      font-size: 14px;
+      margin-top: 60px;
+      font-weight: bold;
+
+    } 
+
+    .chart2s4 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 120px;
+
+    }  
+
+    .chart2s5 {
+      position: absolute;
+      left: 160px;
+      font-size: 14px;
+      margin-top: 120px;
+      font-weight: bold;
+
+    }
+
+    .chart2s6 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 150px;
+
+    }
+
+    .chart3s1 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 60px;
+
+    }
+ .chart3s2 {
+      position: absolute;
+      left: 210px;
+      font-size: 14px;
+      margin-top: 60px;
+      font-weight: bold;
+
+    }   
+
+    .chart3s3 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 90px;
+      font-weight: italic;
+
+    }
+
+ 
+ .chart3s5 {
+      position: absolute;
+      left: 160px;
+      font-size: 14px;
+      margin-top: 120px;
+      font-weight: bold;
+
+    }
+
+    .chart3s6 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 150px;
+
+    }
+
+    .chart4s2 {
+      position: absolute;
+      left: 210px;
+      font-size: 14px;
+      margin-top: 60px;
+      font-weight: bold;
+
+    } 
+
+  
+
+    .chart4s5 {
+      position: absolute;
+      left: 220px;
+      font-size: 14px;
+      margin-top: 120px;
+      font-weight: bold;
+
+    }
+
+    .chart4s6 {
+      position: absolute;
+      left: 20px;
+      font-size: 14px;
+      margin-top: 150px;
+
+    }
+
+
+    .chart5s1 {
+      position: absolute;
+      left: 40px;
+      font-size: 14px;
+      margin-top: 60px;
+
+    }
+ .chart5s2 {
+      position: absolute;
+      left: 240px;
+      font-size: 14px;
+      margin-top: 60px;
+      font-weight: bold;
+
+    }   
+
+    .chart6s1 {
+      position: absolute;
+      left: 40px;
+      font-size: 14px;
+      margin-top: 60px;
+
+    }
+ .chart6s2 {
+      position: absolute;
+      left: 180px;
+      font-size: 14px;
+      margin-top: 60px;
+      font-weight: bold;
+
+    }   
