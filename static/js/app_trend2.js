@@ -29,12 +29,12 @@ var x = d3.scaleTime().range([0, width]),
 var xAxis = d3.axisBottom(x)
     .ticks(d3.timeDay.every(4))
     .tickFormat(function(d) {
-    return d3.timeFormat("%d-%m")(d)
+    return d3.timeFormat("%m-%d")(d)
   }),
     xAxis2 = d3.axisBottom(x2)
     .ticks(d3.timeDay.every(4))
     .tickFormat(function(d) {
-    return d3.timeFormat("%d-%m")(d)
+    return d3.timeFormat("%m-%d")(d)
   }),
     yAxis = d3.axisLeft(y);
 
@@ -235,7 +235,7 @@ mouseG.append("path") // this is the black vertical line to follow mouse
           });
              
             div.html("<p> <span style=color:red>  Step Count: " + parseFloat(step).toFixed(5)  + 
-              " Miles</span><br/> Date:" + d3.timeFormat("%a %d")(xDate)  
+              " </span><br/> Date:" + d3.timeFormat("%a %d")(xDate)  
               ) 
                .style("left", (d3.event.pageX + 10) + "px")    
                .style("top", (d3.event.pageY - 10) + "px");
