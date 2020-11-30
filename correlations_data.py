@@ -51,6 +51,9 @@ def generate_summary_data(dataset):
         ave_hr = project[project['type']=="HeartRate"]['value'].astype(float).mean()
         print (ave_hr)
         output['hrave'] = ave_hr
+        ave_be = project[project['type']=="BasalEnergyBurned"]['value'].astype(float).mean()
+        print (ave_be)
+        output['beave'] = ave_be
 
         filter = project[project['type']=="DistanceWalkingRunning"]
         filter['time'] = pd.to_datetime(filter['startDate'])
@@ -87,3 +90,5 @@ def parse():
         generate_basal_data(dataset)
         generate_summary_data(dataset)
         print("---Total Time  %s seconds ---" % (time.time() - start_time))
+if __name__ == "__main__":
+	parse()
