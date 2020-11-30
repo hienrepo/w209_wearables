@@ -1,5 +1,9 @@
 var trend3CsvData;
-d3.csv('/static/data/heart_rate_export.csv', function(data){
+var sampleFolder = gOptions.sampleFolder;
+var dataFile = sampleFolder + 'heart_rate_export.csv';
+
+d3.csv(dataFile, function(data){
+// d3.csv('/static/data/heart_rate_export.csv', function(data){
 	trend3CsvData = data;
 });
 

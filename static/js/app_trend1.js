@@ -87,15 +87,21 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")       
     .style("opacity", 0);
 
-d3.json("/static/data/data_summary.json", function(data) {
+var sampleFolder = gOptions.sampleFolder;
+var summaryFile = sampleFolder + 'data_summary.json';
+var dataFile = sampleFolder + 'data_trend.csv';  
+
+//d3.json("/static/data/data_summary.json", function(data) {
+
+  d3.json(summaryFile, function(data) {
 
       var str2 = parseFloat(data['dwave']).toFixed(1);
       var summary2 =  str2.concat(" Miles/Day");
       document.getElementsByClassName("chart5s2")[0].innerHTML = summary2;
 
 });      
-
-d3.csv("/static/data/data_trend.csv", function(error, data) {
+  d3.csv(dataFile, function(error, data) {
+// d3.csv("/static/data/data_trend.csv", function(error, data) {
   if (error) throw error;
   
   // format the data

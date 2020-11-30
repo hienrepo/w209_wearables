@@ -1,5 +1,10 @@
 var chart5CsvData;
-d3.csv('/static/data/flights_steps_export.csv', function(data){
+
+var sampleFolder = gOptions.sampleFolder;
+
+var dataFile = sampleFolder + 'flights_steps_export.csv';  
+d3.csv(dataFile, function(data){
+//d3.csv('/static/data/flights_steps_export.csv', function(data){
 	chart5CsvData = data;
 });
 

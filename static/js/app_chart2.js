@@ -25,9 +25,15 @@ var margin = {top: 20, right: 80, bottom: 50, left: 60},
         .scale(y);
     var div = d3.select("body").append("div") 
               .attr("class", "tooltip")       
-              .style("opacity", 0);     
+              .style("opacity", 0);  
 
-    d3.json("/static/data/data_summary.json", function(data) {
+    var sampleFolder = gOptions.sampleFolder;
+    var summaryFile = sampleFolder + 'data_summary.json';
+    var dataFile = sampleFolder + 'data_scatter.csv';  
+    
+  d3.json(summaryFile, function(data) {             
+
+  //  d3.json("/static/data/data_summary.json", function(data) {
       var str1 = parseFloat(data['hrave']).toFixed(2);
       var summary1 =  str1.concat(" / min");
       document.getElementsByClassName("chart2s2")[0].innerHTML = summary1;
@@ -38,8 +44,8 @@ var margin = {top: 20, right: 80, bottom: 50, left: 60},
       
 
 });             
-
-    d3.csv("/static/data/data_scatter.csv", types2, function(error, data){
+    d3.csv(dataFile, types2, function(error, data){
+   // d3.csv("/static/data/data_scatter.csv", types2, function(error, data){
 
       y.domain(d3.extent(data, function(d){ return d.y}));
       x.domain(d3.extent(data, function(d){ return d.x}));

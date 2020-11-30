@@ -3,7 +3,11 @@
 
 window.onload = function summary(){
 
-		d3.json("/static/data/data_summary.json", function(data) {
+	    var sampleFolder = gOptions.sampleFolder;
+    	var summaryFile = sampleFolder + 'data_summary.json';
+
+    	d3.json(summaryFile, function(data) {
+		//d3.json("/static/data/data_summary.json", function(data) {
 
 		// var summary = "The tables and charts below describe your activities between "
 
