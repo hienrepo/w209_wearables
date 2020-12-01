@@ -42,6 +42,15 @@ function chart1(){
       var summary2 =  str2.concat(" Miles/Day");
       document.getElementsByClassName("chart1s5")[0].innerHTML = summary2;
 
+      description = "<b>Description:</b>The graph displays plot of Heart Rate (in bpm) with Distance Walked / Run (in miles). " +
+                    "X value of a data point is Distance Walked / Run aggregated(sum) by hour.  " + 
+                    " Y value of a data point is average Heart Rate aggregated (mean) by hour. User " +
+                    "can hover over any datapoint to see the individual values . The trend line is a " +
+                    " regression plot of Heart Rate based on Distance Walked / Run. The regression line equation " +
+                    " is displayed as a tooltip. " 
+
+      document.getElementsByClassName("chart1s7")[0].innerHTML = description;
+
 });  
 
 

@@ -41,6 +41,15 @@ var margin = {top: 20, right: 80, bottom: 50, left: 60},
       var str2 = parseFloat(data['scave']).toFixed(1);
       var summary2 =  str2.concat(" /Day");
       document.getElementsByClassName("chart2s5")[0].innerHTML = summary2;
+
+      description = "<b>Description:</b>The graph displays plot of Heart Rate (in bpm) with Step Count. " +
+                    "X value of a data point is Step Count(sum) by hour.  " + 
+                    " Y value of a data point is average Heart Rate aggregated (mean) by hour. User " +
+                    "can hover over any datapoint to see the individual values . The trend line is a " +
+                    " regression plot of Heart Rate based on Step Count. The regression line equation " +
+                    " is displayed as a tooltip. " 
+
+      document.getElementsByClassName("chart2s7")[0].innerHTML = description;
       
 
 });             

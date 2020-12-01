@@ -40,6 +40,16 @@ var margin = {top: 20, right: 80, bottom: 50, left: 60},
       var str2 = parseFloat(data['scave']).toFixed(1);
       var summary2 =  str2.concat(" /Day");
       document.getElementsByClassName("chart3s5")[0].innerHTML = summary2;
+
+      description = "<b>Description:</b>The graph displays plot of Basal Energy Burnt (in calories) with Step Count. " +
+                    " Basal Energy is the metabolic energy consumed. " + 
+                    "X value of a data point is Step Count(sum) by hour.  " + 
+                    " Y value of a data point is Basal Energy Burnt aggregated (sum) by hour. User " +
+                    "can hover over any datapoint to see the individual values . The trend line is a " +
+                    " regression plot of Basal Energy Burnt based on Step Count. The regression line equation " +
+                    " is displayed as a tooltip. " 
+
+      document.getElementsByClassName("chart3s7")[0].innerHTML = description;
       
 
 });             

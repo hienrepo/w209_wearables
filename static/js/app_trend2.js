@@ -61,9 +61,9 @@ var step2 = d3.line()
       
 
 var clip = svg.append("defs").append("svg:clipPath")
-    .attr("id", "clip")
+    .attr("id", "clip2")
     .append("svg:rect")
-    .attr("width", width)
+    .attr("width", width )
     .attr("height", height)
     .attr("x", 0)
     .attr("y", 0); 
@@ -72,7 +72,7 @@ var clip = svg.append("defs").append("svg:clipPath")
 var Line_chart = svg.append("g")
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    .attr("clip-path", "url(#clip)");  
+    .attr("clip-path", "url(#clip2)");  
 
 
 var focus = svg.append("g")
@@ -91,12 +91,18 @@ var sampleFolder = gOptions.sampleFolder;
 var summaryFile = sampleFolder + 'data_summary.json';
 var dataFile = sampleFolder + 'data_trend.csv';
 
+
  d3.json(summaryFile, function(data) {
 // d3.json("/static/data/data_summary.json", function(data) {
 
       var str2 = parseFloat(data['scave']).toFixed(1);
       var summary2 =  str2.concat(" /Day");
       document.getElementsByClassName("chart6s2")[0].innerHTML = summary2;
+
+      description = "<b>Description:</b>The graph displays the Step Count time trend over time. The values  " +
+                    "are aggregated by day. The brush (grey rectangle) can be dragged from left and right corners to " +
+                    " zoom in to the dates."
+      document.getElementsByClassName("chart6s3")[0].innerHTML = description; 
 
 });     
   d3.csv(dataFile, function(error, data) {
@@ -171,9 +177,9 @@ context.append("g")
 
 svg.append("rect")
   .attr("class", "zoom")
-  .attr("width", width)
+  .attr("width", width )
   .attr("height", height)
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+  .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
   .call(zoom);
 
 svg.append('line')
@@ -256,7 +262,7 @@ function brushed() {
   Line_chart.select(".step").attr("d", step);
   focus.select(".axis-x").call(xAxis);
   svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
-      .scale(width / (s[1] - s[0]))
+      .scale(width  / (s[1] - s[0]))
       .translate(-s[0], 0));
 }
 

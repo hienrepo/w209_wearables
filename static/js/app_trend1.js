@@ -29,12 +29,12 @@ var x = d3.scaleTime().range([0, width]),
 var xAxis = d3.axisBottom(x)
     .ticks(d3.timeDay.every(4))
     .tickFormat(function(d) {
-    return d3.timeFormat("%d-%m")(d)
+    return d3.timeFormat("%m-%d")(d)
   }),
     xAxis2 = d3.axisBottom(x2)
     .ticks(d3.timeDay.every(4))
     .tickFormat(function(d) {
-    return d3.timeFormat("%d-%m")(d)
+    return d3.timeFormat("%m-%d")(d)
   }),
     yAxis = d3.axisLeft(y);
 
@@ -61,7 +61,7 @@ var distance2 = d3.line()
       
 
 var clip = svg.append("defs").append("svg:clipPath")
-    .attr("id", "clip")
+    .attr("id", "clip1")
     .append("svg:rect")
     .attr("width", width)
     .attr("height", height)
@@ -72,7 +72,7 @@ var clip = svg.append("defs").append("svg:clipPath")
 var Line_chart = svg.append("g")
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    .attr("clip-path", "url(#clip)");  
+    .attr("clip-path", "url(#clip1)");  
 
 
 var focus = svg.append("g")
@@ -99,6 +99,11 @@ var dataFile = sampleFolder + 'data_trend.csv';
       var summary2 =  str2.concat(" Miles/Day");
       document.getElementsByClassName("chart5s2")[0].innerHTML = summary2;
 
+      description = "<b>Description:</b>The graph displays the Distance Walked/Run(miles) time trend over time. The values  " +
+                    "are aggregated by day. The brush (grey rectangle) can be dragged from left and right corners to " +
+                    " zoom in to the dates."
+      document.getElementsByClassName("chart5s3")[0].innerHTML = description;              
+
 });      
   d3.csv(dataFile, function(error, data) {
 // d3.csv("/static/data/data_trend.csv", function(error, data) {
@@ -112,7 +117,7 @@ var dataFile = sampleFolder + 'data_trend.csv';
   });
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([0, d3.max(data, function (d) { return d.distance; })]);
+  y.domain([0, d3.max(data, function (d) { return parseFloat(d.distance); })]);
   x2.domain(x.domain());
   y2.domain(y.domain());
 

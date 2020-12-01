@@ -43,6 +43,16 @@ var margin = {top: 20, right: 80, bottom: 50, left: 60},
       var str2 = parseFloat(data['dwave']).toFixed(1);
       var summary2 =  str2.concat(" Miles/Day");
       document.getElementsByClassName("chart4s5")[0].innerHTML = summary2;
+
+      description = "<b>Description:</b>The graph displays the plot of Basal Energy Burnt (in calories) with Distance Walked/Run (miles). " +
+                    " Basal Energy is the metabolic energy consumed. " + 
+                    "X value of a data point is Distance Walked/Run(sum) by hour.  " + 
+                    " Y value of a data point is Basal Energy Burnt aggregated (sum) by hour. User " +
+                    "can hover over any datapoint to see the individual values . The trend line is a " +
+                    " regression plot of Basal Energy Burnt based on Distance Walked/Run. The regression line equation " +
+                    " is displayed as a tooltip. " 
+
+      document.getElementsByClassName("chart4s7")[0].innerHTML = description;
       
 
 });  
