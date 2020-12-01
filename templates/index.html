@@ -62,15 +62,32 @@ W209 - Wearables</title>
 			<div class="col-md-4 themed-grid-col">
 			<i class="fas fa-chart-bar" style="font-size:60px;color:#1a337d;"></i>
 			<h4>Data Types</h4>
-			<p>Wearables technology collect vast amounts of data regarding a user’s health, fitness, and well being. Examples:</p>
+			<p>Wearables technology collect vast amounts of data regarding a user’s health, fitness, and well being. Examples: flights climbed, step count, heart rate, energy burned, and more! </p>
 			</div>
 		</div>
 	</div>
 </div>
 
 
+<div class="jumbotron" id="summary-intro">
+<div class="row justify-content-center">
+    <div class="col-6">
+		<h1 style="font-weight: bold">Hello, and welcome to Your Health Data: Visualized! <br><br> 
+			<h3>The tables and charts below describe your activities between <span class="summary_stats" id="start_summary"></span>  and <span class="summary_stats" id="end_summary"></span>. You did quite a bit in this time, with <span class="summary_stats" id="rows_summary"></span> health data entries recorded!<br><br>
+			It looks like you took <span class="summary_stats" id="sctot_summary"></span> steps in this time, amounting to an average distance of <span class="summary_stats" id="dwave_summary"></span> miles per day. Your average measured heart rate as you completed these activities was <span class="summary_stats" id="hrave_summary"></span>! <br><br>
+			That’s enough from us—Why don’t you take a look yourself?
+			</h3>
+		</h1>
+		<p style="opacity:0.7;"><a class="btn btn-outline-light btn-lg" href="#visualize-section" role="button">Explore the data &raquo;</a></p>
+    </div>
+  </div>
+
+</div>
+
+
+
 <div class="jumbotron" id="visualize-section">
-	<h2 style="text-align: center;padding-bottom: 80px;">Sample Visualizations</h2>
+	<h2 style="text-align: center;padding-bottom: 80px;">Visualizations</h2>
 	<div class="container-fluid p-0">
 		<div class="input-group mb-3">
 		  <div class="input-group-prepend">
@@ -78,7 +95,7 @@ W209 - Wearables</title>
 		  </div>
 		  <select class="custom-select" id="vizselection">
 			<option selected>Choose...</option>
-			<option value="viz1">Heart Rate Vs Walking/Running Distance</option>
+			<option value="viz1" selected>Heart Rate Vs Walking/Running Distance</option>
 			<option value="viz2">Heart Rate Vs Step Count</option>
 			<option value="viz3">Basal Energy Burnt Vs Step Count</option>
 			<option value="viz4">Basal Energy Burnt Vs Walking/Running Distance</option>
@@ -246,7 +263,7 @@ W209 - Wearables</title>
 </div>
 
 <div class="jumbotron" id="upload-section">
-	<h2 style="text-align: center;padding-bottom: 80px;">Upload your data</h2>
+	<h2 style="text-align: center;padding-bottom: 80px;">Upload New Data</h2>
 	<form action="/upload" method="POST" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="upload-form">Upload your Apple Health data (.xml)</label>
@@ -327,6 +344,7 @@ W209 - Wearables</title>
 <script src="../static/js/app_trend1.js"></script>
 <script src="../static/js/app_trend2.js"></script>
 <script src="../static/js/app_trend3.js"></script>
+<script src="../static/js/app_summary.js"></script>
 {{super()}}
 {% endblock %}
 

@@ -11,8 +11,6 @@ def index():
 	return render_template('index.html')
 
 
-# app.config["XML_UPLOADS"] = "/data"
-
 
 def allowed_type(filename):
 	
@@ -21,7 +19,7 @@ def allowed_type(filename):
 	
 	ext = filename.rsplit(".", 1)[1]
 	
-	if ext.upper() in ["XML", "PNG", "JPG"]:
+	if ext.upper() in ["XML"]:
 		return True
 	else:
 		return False
@@ -29,25 +27,25 @@ def allowed_type(filename):
 
 @app.route('/upload', methods=["GET", "POST"])
 def upload():
-	if request.method == "POST":
-		if request.files:
-			xml = request.files["xml"]
-			ext = xml.filename.rsplit(".", 1)[1]
+	# if request.method == "POST":
+		# if request.files:
+			# xml = request.files["xml"]
+			# ext = xml.filename.rsplit(".", 1)[1]
 			
 			
-			if xml.filename == "":
-				print("File must have filename")
-				return redirect(request.url)
+			# if xml.filename == "":
+				# print("File must have filename")
+				# return redirect(request.url)
 			
-			if not allowed_type(xml.filename):
-				print("File not allowed")
-				return redirect(request.url)
+			# if not allowed_type(xml.filename):
+				# print("File not allowed")
+				# return redirect(request.url)
 				
-			xml.save('./static/data/user_upload' + '.' + ext)
+			# xml.save('./static/data/user_upload' + '.' + ext)
 			
-			print("File saved")
+			# print("File saved")
 			
-			return render_template('results.html')
+			# return render_template('results.html')
 			
 	return render_template('index.html')
 
