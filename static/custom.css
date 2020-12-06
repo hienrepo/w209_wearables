@@ -67,11 +67,11 @@ table, th, td {
 }
 
 .axisRed {
-	stroke: red;
+	stroke: #FC766A;
 }
 
 .axisBlue {
-	stroke: blue;
+	stroke: #5B84B1;
 }
 
 .regression {

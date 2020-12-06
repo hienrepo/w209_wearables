@@ -99,10 +99,10 @@ W209 - Wearables</title>
 			<option value="viz2">Heart Rate Vs Step Count</option>
 			<option value="viz3">Basal Energy Burnt Vs Step Count</option>
 			<option value="viz4">Basal Energy Burnt Vs Walking/Running Distance</option>
-			<option value="viz5">Distance Walked/Run Time Trend</option>
-			<option value="viz6">Step Count Time Trend</option>
-			<option value="viz7">Heart Rate Time Trend</option>
-			<option value="viz8">Flights Climbed and Steps Taken</option>
+			<option value="viz5">Distance Walked/Run Vs Time</option>
+			<option value="viz6">Step Count Vs Time</option>
+			<option value="viz7">Heart Rate Vs Time</option>
+			<option value="viz8">Flights Climbed and Steps Taken Vs Time</option>
 		  </select>
 		</div>
 
@@ -210,6 +210,8 @@ W209 - Wearables</title>
 					<div class="trend3"></div>
 				</div>
 				<div class="col-4">
+					<b>Description:</b><br />
+					The visualization to the left tracks your heart rate. The date is plotted as the independent variable over the x-axis, while your heart rate (beats per minute) at each specific measurement time is plotted as the dependent variable across the y-axis. Additionally, the data points are colored to reflect where each measurement falls within <a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/exercise-intensity/art-20046887"> target heart rate bands, calculated by the input age</a>. In particular, these are coded as follows:<br /><br />
 					<table>
 						<thead>
 						  <tr>
@@ -236,6 +238,9 @@ W209 - Wearables</title>
 						  </tr>
 						</tbody>
 					</table>
+					<br />
+					Additionally, the plot and table above can be adjusted using the age slider at the top left of the visualization, displaying how the heart rate targets would change as a function of age as well as how the same heart rate metrics would reflect on runners of different ages. Moving the mouse across the plot will calculate the 4-day average heart rate within the highlighted region and update it at the top right of the visualization.<br /><br />
+					Note that target heart rate is a function of age, with younger individuals having higher maximum and target heart rates. You can see this by adjusting the input age using the slider at the top of the page. The target heart rate bands in the table above and the colors of the plotted heart rate data points from my run change to reflect the input age. If you were younger, these same heart rates would appear predominately green as your maximum heart rate and related target heart rates would be higher. On the other hand, if you were older and had the same heart rates through my run, more of these datapoints appear red as the target heart rate bands shift lower.				
 				</div>
 			</div>
 		</div>		
@@ -245,15 +250,32 @@ W209 - Wearables</title>
 					<div class="chart5"></div>
 				</div>
 				<div class="col-4">
+					<b>Description:</b><br />
+					The bar chart to the left shows the number of stairflights that you climbed and number of steps you walked each day—use this to visualize the trends in your activity over the course of the month. Hover your mouse over the bars for a detailed view of your activity on any given day. The summary statistics of this activity are as follows:<br /><br />
 					<table>
 						<thead>
-						  <tr>
-							<th>Date</th>
-							<th>Flights</th>
-							<th>Steps</th>
-						  </tr>
+							<tr>
+								<th></th>
+								<th style="color: #FC766A;">Flights</th>
+								<th style="color: #5B84B1;">Steps</th>
+							</tr>
 						</thead>
-						<tbody id="table8">
+						<tbody>
+							<tr>
+								<th>Min</th>
+								<td id="FlightsMin"></th>
+								<td id="StepsMin"></th>
+							</tr>
+							<tr>
+								<th>Mean</th>
+								<td id="FlightsMean"></th>
+								<td id="StepsMean"></th>
+							</tr>
+							<tr>
+								<th>Max</th>
+								<td id="FlightsMax"></th>
+								<td id="StepsMax"></th>
+							</tr>
 						</tbody>
 					</table>
 			  </div>

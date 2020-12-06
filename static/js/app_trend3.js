@@ -37,7 +37,7 @@ gDrawing
 	.call(d3.axisBottom(trend3X)
 		.ticks(d3.timeDay.every(4))
 		.tickFormat(function(d) {
-			return d3.timeFormat("%Y-%m-%d")(d)
+			return d3.timeFormat("%m-%d")(d)
 		}))
 	.append("text")
 	.style("fill", "black")
