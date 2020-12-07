@@ -356,17 +356,17 @@ W209 - Wearables</title>
 	});
 
 </script>
-<script src="../static/js/d3.v4.js"></script>
-<script src="../static/js/options.js"></script>
-<script src="../static/js/app_chart1.js"></script>
-<script src="../static/js/app_chart2.js"></script>
-<script src="../static/js/app_chart3.js"></script>
-<script src="../static/js/app_chart4.js"></script>
-<script src="../static/js/app_chart5.js"></script>
-<script src="../static/js/app_trend1.js"></script>
-<script src="../static/js/app_trend2.js"></script>
-<script src="../static/js/app_trend3.js"></script>
-<script src="../static/js/app_summary.js"></script>
+<script src="{{ url_for('static', filename='js/d3.v4.js') }}"></script>
+<script src="{{ url_for('static', filename='js/options.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_chart1.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_chart2.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_chart3.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_chart4.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_chart5.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_trend1.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_trend2.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_trend3.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app_summary.js') }}"></script>
 {{super()}}
 {% endblock %}
 
